@@ -4,158 +4,322 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brighter Pathways Educational Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* General Styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* CSS Variables for Easy Modern Styling */
+        :root {
+            --primary-color: #2a6f97;
+            --secondary-color: #014f86;
+            --accent-color: #61a5c2;
+            --background-light: #f8f9fa;
+            --text-dark: #2b2d42;
+            --text-muted: #6c757d;
+            --white: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            color: #333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--background-light);
             line-height: 1.6;
         }
 
-        /* Hero / Header Section with Background Image */
+        /* Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero / Header Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                        url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            height: 60vh;
+            position: relative;
+            background: linear-gradient(rgba(1, 79, 134, 0.65), rgba(42, 111, 151, 0.65)), 
+                        url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            min-height: 75vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #ffffff;
+            color: var(--white);
             padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            max-width: 600px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+            font-size: 1.25rem;
+            max-width: 650px;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-bottom: 30px;
         }
 
-        /* Main Content Container */
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            background-color: #f0f0f0;
+        }
+
+        /* Container Sections */
         .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 20px;
         }
 
         /* About Section */
-        .about {
+        .about-section {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .profile-img-container {
+            width: 100%;
             text-align: center;
-            margin-bottom: 50px;
         }
 
-        .about h2 {
-            color: #2c3e50;
+        /* Uses your profilephoto image file */
+        .profile-img {
+            width: 100%;
+            max-width: 260px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            box-shadow: var(--shadow);
         }
 
-        /* Contact Form Styles */
+        .about-text h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .about-text .title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        /* Contact Form Section */
         .contact-section {
-            background-color: #f9f9f9;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            box-shadow: var(--shadow);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .contact-section h2 {
-            margin-top: 0;
-            color: #2c3e50;
+            color: var(--secondary-color);
             text-align: center;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .contact-section p.subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 30px;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .form-group input, 
         .form-group textarea {
             width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 12px 15px;
+            border: 1px solid #dde1e5;
+            border-radius: 8px;
             font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
         }
 
         .submit-btn {
-            background-color: #3498db;
-            color: white;
-            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 14px 20px;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 1rem;
+            font-weight: 600;
             width: 100%;
+            transition: background-color 0.2s;
         }
 
         .submit-btn:hover {
-            background-color: #2980b9;
+            background-color: var(--secondary-color);
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #2c3e50;
-            color: white;
-            margin-top: 40px;
+            padding: 30px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .about-section { grid-template-columns: 1fr; text-align: center; padding: 30px; }
+            .contact-section { padding: 30px; }
         }
     </style>
 </head>
 <body>
 
+    <nav>
+        <a href="#" class="logo">Brighter Pathways</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <header class="hero">
         <h1>Brighter Pathways Educational Services</h1>
         <p>Empowering minds through personalized Executive Functioning and ADHD support.</p>
+        <a href="#contact" class="hero-btn">Schedule Services</a>
     </header>
 
     <main class="container">
         
-        <section class="about">
-            <h2>Unlocking Potential & Building Confidence</h2>
-            <p>We specialize in helping students and individuals develop practical strategies for organization, focus, time management, and emotional regulation.</p>
+        <section id="about" class="about-section">
+            <div class="profile-img-container">
+                <img src="profilephoto.jpg" alt="Katherine Israel" class="profile-img" onerror="this.onerror=null; this.src='profilephoto.png';">
+            </div>
+            <div class="about-text">
+                <h2>Katherine Israel</h2>
+                <div class="title">Founder & Educational Specialist</div>
+                <p>
+                    Katherine Israel holds a Master’s degree in Counseling, with specialized thesis research dedicated to clinical interventions and support strategies for children navigating Attention Deficit Hyperactivity Disorder (ADHD) and related learning differences.
+                </p>
+                <p>
+                    With extensive expertise in educational psychology, Katherine works closely with individuals and families to build tailored strategies for executive functioning, time management, emotional regulation, and structured learning success.
+                </p>
+            </div>
         </section>
 
-        <section class="contact-section">
-            <h2>Get Started Today</h2>
-            <p style="text-align: center; margin-bottom: 25px;">Fill out the form below to set up services or inquire about our coaching programs.</p>
+        <section id="contact" class="contact-section">
+            <h2>Get in Touch</h2>
+            <p class="subtitle">Reach out today to set up a consultation or inquire about services.</p>
             
             <form action="#" method="POST">
                 <div class="form-group">
                     <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <input type="text" id="name" name="name" placeholder="Jane Doe" required>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <input type="email" id="email" name="email" placeholder="jane@example.com" required>
                 </div>
 
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
+                    <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
                 </div>
 
                 <div class="form-group">
-                    <label for="message">How can we help you?</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Tell us about the student or goals you'd like to address..." required></textarea>
+                    <label for="message">How can we help?</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Please share a bit about your goals or the student needing support..." required></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">Request Information / Schedule Services</button>
+                <button type="submit" class="submit-btn">Request Information</button>
             </form>
         </section>
 
